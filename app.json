@@ -1,10 +1,10 @@
 {
   "pages":[
-    "pages/playmusic/playmusic",
+    
     "pages/welcome/welcome",
-    
-    
+    "pages/playmusic/playmusic",
     "pages/winpage/winpage"
+    
     
   ],
   "window":{

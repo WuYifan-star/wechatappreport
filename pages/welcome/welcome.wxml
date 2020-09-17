@@ -7,7 +7,7 @@
                 <view class=""><open-data class="username" type="userNickName"></open-data></view>
                 <view class="iconscore">
                     <view><text class="iconfont icon-yinle" style="font-weight: bolder; font-size:50rpx;color:white"></text></view>
-                    <view class="score"><input value="1111" type="text" disabled="true"/></view>
+                    <view class="score"><input value="{{grade}}" type="text" disabled="true"/></view>
                 </view>
             </view>
         </view>

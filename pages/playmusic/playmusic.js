@@ -125,43 +125,38 @@ Page({
     if (this.data.isall == 'all') {
       if (this.data.songs[this.data.nowindex].songname == this.data.title.join('')) {
         console.log("正确")
-        wx.showModal({
-          title: '提示',
-          content: '恭喜你答题正确',
-          showCancel:false,
-          // cancelText: '取消',
-          // cancelColor: '#000000',
-          confirmText: '确定',
-          confirmColor: '#3CC51F',
-          success: (res) => {
-            if(res.confirm){
-              if(this.data.nowindex == this.data.songs.length-1){
-                this.setData({
-                  song:[],
-                  title:[],
-                  nowindex:0,
-                  count:0,
-                  isall:'',
-                  tipc:0,
-                  tipw:0
-                })
-                wx.redirectTo({
-                  url: '/pages/winpage/winpage',
-                })
-              }
-              else{
-                this.setData({
-                nowindex:this.data.nowindex + 1,
-                isall:'',
-                title:[],
-                tipc:0,
-                tipw:0,
-              })
-              this.init()
-              }
-            }
-          },
-        });
+        var app = getApp()
+        app.globalData.grade = app.globalData.grade + 100
+        console.log(app.globalData.grade)
+        wx.showToast({
+          title: '得分加100',
+          icon:'none',
+          duration: 1000
+        })
+        if(this.data.nowindex == this.data.songs.length-1){
+          this.setData({
+            song:[],
+            title:[],
+            nowindex:0,
+            count:0,
+            isall:'',
+            tipc:0,
+            tipw:0
+          })
+          wx.redirectTo({
+            url: '/pages/winpage/winpage',
+          })
+        }
+        else{
+          this.setData({
+          nowindex:this.data.nowindex + 1,
+          isall:'',
+          title:[],
+          tipc:0,
+          tipw:0,
+        })
+        this.init()
+        }
       }
       else{
         console.log("不正确")
@@ -343,12 +338,14 @@ Page({
 
    //点击分享按钮
   onShareAppMessage: function (res) {
+    var app = getApp()
+        app.globalData.grade = app.globalData.grade + 30
     // 如果接受到的是按钮信息
     if(res.from ==='menu') {
       console.log(res.target,res)
     }
     return{
-      title:'听歌识曲',
+      title:'help',
       path:"pages/welcome/welcome" 
     }
 
