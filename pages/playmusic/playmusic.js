@@ -8,7 +8,7 @@ Page({
   data: {
     song:[],
     title:[],
-    nowindex:0,
+    nowindex: Math.round(Math.random()*10),
     count:0,
     isall:'',
     tipc:0,
@@ -16,12 +16,13 @@ Page({
     auto:true,
     isplay:true,
     src:'',
-    istip: false
+    istip: false,
+    isok:0
   },
 
   init:function(){
     wx.setNavigationBarTitle({
-      title:'听歌识曲-第'+(this.data.nowindex+1) + '首',
+      title:'听歌识曲-第'+(this.data.isok+1) + '首',
   })
     wx.request({
       
@@ -40,6 +41,7 @@ Page({
           title:this.data.title
         })
         // 自动播放
+        this.setData({ isplay: true });
         myaudio.src = this.data.src
         myaudio.play();
       },
@@ -133,23 +135,29 @@ Page({
           icon:'none',
           duration: 1000
         })
-        if(this.data.nowindex == this.data.songs.length-1){
+        this.setData({
+          isok : this.data.isok + 1
+        })
+        console.log("++++++++++++"+this.data.isok)
+        if(this.data.isok == 5){
           this.setData({
             song:[],
             title:[],
-            nowindex:0,
+            nowindex:Math.round(Math.random()*10),
             count:0,
             isall:'',
             tipc:0,
             tipw:0
           })
+          this.setData({ isplay: false });
+          myaudio.stop();
           wx.redirectTo({
             url: '/pages/winpage/winpage',
           })
         }
         else{
           this.setData({
-          nowindex:this.data.nowindex + 1,
+          nowindex:Math.round(Math.random()*10),
           isall:'',
           title:[],
           tipc:0,
@@ -310,23 +318,28 @@ Page({
 
    //点击跳过按钮
    omit:function(){
-    if(this.data.nowindex == this.data.songs.length-1){
+    this.setData({
+      isok : this.data.isok + 1
+    })
+    if(this.data.isok == 5){
       this.setData({
         song:[],
         title:[],
-        nowindex:0,
+        nowindex:Math.round(Math.random()*10),
         count:0,
         isall:'',
         tipc:0,
         tipw:0
       })
+      this.setData({ isplay: false });
+      myaudio.stop();
       wx.redirectTo({
         url: '/pages/winpage/winpage',
       })
     }
     else{
       this.setData({
-      nowindex:this.data.nowindex + 1,
+      nowindex:Math.round(Math.random()*10),
       isall:'',
       title:[],
       tipc:0,
