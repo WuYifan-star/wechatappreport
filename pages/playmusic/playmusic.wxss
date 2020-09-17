@@ -1,0 +1,84 @@
+/* pages/playmusic/playmusic.wxss */
+.name{
+  background: #2EBBCC;
+  width: 1.5em;
+  height: 1.5em;
+  float:left;
+  line-height: 1.5em;
+  font-size:1.5em;
+  margin-right: 6rpx;
+  border-radius:10rpx;
+  margin-top:15rpx;
+  cursor: pointer;
+  box-shadow: gray 5rpx 5rpx;
+}
+.content{
+  margin-top:50rpx;
+  padding:50rpx;
+  flex-direction: row;
+
+}
+.btn{
+  background: #FDFFFC;
+  width: 150rpx;
+  height: 3em;
+  line-height: 3em;
+  font-size:1.5em;
+  float:left;
+  margin-right: 1%;
+  margin-bottom:5rpx;
+  text-align:center;
+  border-radius:10rpx;
+}
+.tip{
+  float:left;
+  padding-top: 14rpx;
+  height:1.5em;
+  line-height: 1.5em;
+  display: inline-block;
+}
+.footer{
+  position:fixed;
+  bottom:0;
+}
+.sos{
+  float:right;
+  display:inline-block;
+  background: #b0b0b0;
+  text-align:center;
+  color:#fff;
+  line-height: 1.5em;
+  padding: 0 1rpx;
+  height:1.5em;
+  margin:0 10rpx 10rpx 5rpx;
+}
+.sos:hover{
+  background: #f4a460;
+}
+.consequence{
+  display: flex; 
+  flex-direction: row; 
+
+}
+.refresh{
+  margin-top: 40rpx;
+  margin-left: 25rpx;
+  width: 1rem;
+  height: 1rem;
+}
+.otherfun{
+  font-weight: bolder;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 30rpx;
+  background-color: rgb(173, 171, 171);
+  font-size: 20rpx;
+}
+.audioContainer{
+  display: flex;
+  flex-direction: row;
+}
+.audioImg{
+  width: 150rpx;
+  height: 150rpx;
+}

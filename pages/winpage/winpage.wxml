@@ -1,0 +1,4 @@
+<!--pages/winpage/winpage.wxml-->  
+<image class="" src="/images/success.jpg"></image>
+<open-data class="userimg" type="userAvatarUrl"></open-data> 
+<button bindtap="backwelcome">返回主界面</button>

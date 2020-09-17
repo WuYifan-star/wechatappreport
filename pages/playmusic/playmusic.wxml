@@ -1,0 +1,55 @@
+<!--pages/playmusic/playmusic.wxml-->
+<view class="container" hover-class="none" hover-stop-propagation="false">
+    <!-- <audio bindtap="controlmusic" src="{{songs[nowindex].src}}" id="audio" controls></audio> -->
+    <view class='audioContainer'>
+        <!--当前为停止状态  -->
+        <view wx:if="{{isplay==false}}" bindtap='play'>
+          <image class='audioImg' src='/images/播放.png' />
+        </view>
+        <!--当前为播放状态  -->
+        <view wx:if="{{isplay==true}}" bindtap='stop'>
+          <image class='audioImg' src='/images/暂停.png' />
+        </view>
+        <view bindtap='review'>
+            <image class='audioImg' style="width: 100rpx;height: 100rpx;margin-left: 30rpx;" src='/images/重播.png' />
+        </view>
+    </view>
+    <!-- 显示歌曲名称长度 -->
+    <view style="display: flex; flex-direction: row;">
+        <view bindtap="tip" class="otherfun" style=" margin: 50rpx 20rpx; width: 70rpx;height: 30rpx;">提示</view>
+        <view bindtap="omit" class="otherfun" style=" margin: 50rpx 20rpx; width: 70rpx;height: 30rpx;">跳过</view>
+        <view><button class="otherfun" open-type="share" style=" padding: 0; margin: 50rpx 20rpx; width: 150rpx;height: 30rpx;">分享+30<text class="iconfont icon-yinle" style="font-weight: bolder; font-size:20rpx;color:black"></text></button></view>
+        
+    </view>
+    <view class="consequence" hover-class="none" hover-stop-propagation="false">
+        <input id="{{index}}" bindtap="cleartxt" wx:for="{{count}}" type="text" class="name" disabled="true" value="{{title[index]}}"/>
+        <view bindtap="refreshfun"><image class="refresh" src="/images/刷新.png" alt=""/></view>
+        <!-- <input type="text" class="name" disabled="true"/>
+        <input type="text" class="name" disabled="true"/>
+        <input type="text" class="name" disabled="true"/> -->
+    </view>
+<!-- 选名字 -->
+    <view class="content" hover-class="none" hover-stop-propagation="false">
+        <view id="{{index}}" bindtap="getitem" wx:for="{{songs[nowindex].keyword}}" class="btn">{{item}}</view>
+        <!-- <view class="btn">你</view>
+        <view class="btn">你</view>
+        <view class="btn">你</view>
+        <view class="btn">你</view>
+        <view class="btn">你</view>
+        <view class="btn">你</view>
+        <view class="btn">你</view>
+        <view class="btn">你</view>
+        <view class="btn">你</view>
+        <view class="btn">你</view>
+        <view class="btn">你</view>
+        <view class="btn">你</view>
+        <view class="btn">你</view>
+        <view class="btn">你</view>
+        <view class="btn">你</view> -->
+    </view>
+<!-- 转发 -->
+    <!-- <view class="footer" hover-class="none" hover-stop-propagation="false">
+        <text class="tip">挺好玩的，试一试</text>
+        <button class="sos" open-type="share">邀请</button>
+    </view> -->
+</view>

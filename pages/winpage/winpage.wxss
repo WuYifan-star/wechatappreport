@@ -1,0 +1,13 @@
+/* pages/winpage/winpage.wxss */
+.userimg{
+    width:100rpx;
+    height:100rpx;
+    position: absolute;
+    top: 15%;
+    left: 23%;
+}
+.img{
+    width: 100%;
+    height: 1100rpx;
+    display: flex;
+}
